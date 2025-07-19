@@ -1,8 +1,14 @@
 --[[
-    TurkSwarm Engine v8.0
-    Açıklama: Bu script, TurkSwarm'ın ana motorudur.
-    "TurkSwarm_UI.lua" tarafından ayarlanan global ayarları okuyarak çalışır.
+    TurkSwarm Engine v8.1 (All-in-One Loader)
+    Açıklama: Bu motor script'i, önce UI'ı kendi içinden yükler, sonra çalışır.
+    Artık tek bir link ile her şey yüklenir.
 ]]
+
+-- YENİ EKLENEN SATIR: Motor, ilk iş olarak UI'ı bu linkten yükler.
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sceinn0/TurkSwarm-UI/main/ui.lua"))() 
+
+-- Kısa bir gecikme, UI'ın tam olarak yüklenmesini garanti eder.
+task.wait(0.5)
 
 -- Adım 1: Gerekli Servisleri ve Değişkenleri Tanımla
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -101,4 +107,4 @@ RunService.RenderStepped:Connect(function()
     end)
 end)
 
-print("TurkSwarm Engine v8.0 başarıyla yüklendi.")
+print("TurkSwarm Engine v8.1 başarıyla yüklendi.")
